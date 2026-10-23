@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NED2 Dashboard</title>
+
+<style>
+:root{
+    --primary:#8B5A2B;
+    --bg:#f5f6f8;
+    --card:#ffffff;
+    --green:#4CAF50;
+    --orange:#FF9800;
+    --red:#F44336;
+    --blue:#2196F3;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:var(--bg);
+    padding-bottom:80px;
+}
+
+.header{
+    background:var(--primary);
+    color:white;
+    padding:20px;
+    text-align:center;
+    font-size:22px;
+    font-weight:bold;
+    position:sticky;
+    top:0;
+}
+
+.section{
+    padding:15px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    margin-bottom:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.kpi-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.kpi{
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.kpi-value{
+    font-size:28px;
+    font-weight:bold;
+    color:var(--primary);
+}
+
+.progress-item{
+    margin-bottom:15px;
+}
+
+.progress-bar{
+    width:100%;
+    height:10px;
+    background:#ddd;
+    border-radius:20px;
+    margin-top:5px;
+}
+
+.progress-fill{
+    height:100%;
+    border-radius:20px;
+    background:var(--blue);
+}
+
+.status{
+    float:right;
+    font-weight:bold;
+}
+
+.green{color:var(--green);}
+.orange{color:var(--orange);}
+.red{color:var(--red);}
+.blue{color:var(--blue);}
+
+.navbar{
+    position:fixed;
+    bottom:0;
+    left:0;
+    right:0;
+    background:white;
+    display:flex;
+    justify-content:space-around;
+    padding:12px;
+    box-shadow:0 -2px 8px rgba(0,0,0,0.1);
+}
+
+.nav-btn{
+    border:none;
+    background:none;
+    font-size:14px;
+    color:#555;
+    cursor:pointer;
+}
+
+.screen{
+    display:none;
+}
+
+.screen.active{
+    display:block;
+}
+
+.badge{
+    display:inline-block;
+    padding:4px 10px;
+    border-radius:20px;
+    color:white;
+    font-size:12px;
+    margin-right:5px;
+}
+
+.issue{
+    border-left:5px solid var(--red);
+    margin-bottom:10px;
+}
+
+.cert{
+    display:flex;
+    justify-content:space-between;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+    NED 2 Dashboard
+</div>
+
+<!-- HOME -->
+<div id="home" class="screen active">
+
+<div class="section">
+
+<div class="card">
+    <span class="badge" style="background:green;">ACTIVE</span>
+    <span class="badge" style="background:#2196F3;">PHASE 2</span>
+</div>
+
+<div class="kpi-grid">
+
+<div class="kpi">
+    <div class="kpi-value">78%</div>
+    <div>Progress</div>
+</div>
+
+<div class="kpi">
+    <div class="kpi-value">0.96</div>
+    <div>SPI</div>
+</div>
+
+<div class="kpi">
+    <div class="kpi-value">23</div>
+    <div>Issues</div>
+</div>
+
+<div class="kpi">
+    <div class="kpi-value">14/17</div>
+    <div>Milestones</div>
+</div>
+
+</div>
+
+<div class="card">
+    <h3>Discipline Progress</h3>
+    <br>
+
+    <div class="progress-item">
+        Structure 93%
+        <div class="progress-bar">
+            <div class="progress-fill" style="width:93%"></div>
+        </div>
+    </div>
+
+    <div class="progress-item">
+        Piping 87%
+        <div class="progress-bar">
+            <div class="progress-fill" style="width:87%"></div>
+        </div>
+    </div>
+
+    <div class="progress-item">
+        Architecture 78%
+        <div class="progress-bar">
+            <div class="progress-fill" style="width:78%"></div>
+        </div>
+    </div>
+
+    <div class="progress-item">
+        HVAC 71%
+        <div class="progress-bar">
+            <div class="progress-fill" style="width:71%"></div>
+        </div>
+    </div>
+
+    <div class="progress-item">
+        Electrical 63%
+        <div class="progress-bar">
+            <div class="progress-fill" style="width:63%"></div>
+        </div>
+    </div>
+
+</div>
+
+</div>
+</div>
+
+<!-- MANPOWER -->
+<div id="manpower" class="screen">
+
+<div class="section">
+
+<div class="card">
+<h3>Manpower Status</h3>
+<br>
+
+<p>Project Manager <span class="status green">✓</span></p><br>
+<p>Offshore Engineer <span class="status green">✓</span></p><br>
+<p>Senior Engineer <span class="status green">✓</span></p><br>
+<p>QA/QC <span class="status green">✓</span></p><br>
+<p>HSE <span class="status orange">Pending</span></p>
+
+</div>
+
+<div class="card">
+<h3>Available Strength</h3>
+<br>
+<div class="kpi-value">83%</div>
+</div>
+
+</div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div id="certs" class="screen">
+
+<div class="section">
+
+<div class="card cert">
+<span>BOSIET + HUET</span>
+<span class="green">Valid</span>
+</div>
+
+<div class="card cert">
+<span>GWO BST</span>
+<span class="green">Valid</span>
+</div>
+
+<div class="card cert">
+<span>H2S Awareness</span>
+<span class="orange">Review Soon</span>
+</div>
+
+</div>
+
+</div>
+
+<!-- ACTIVITIES -->
+<div id="activities" class="screen">
+
+<div class="section">
+
+<div class="card">
+🟢 Mobilisation Plan
+<br><br>
+15 Apr 2027
+</div>
+
+<div class="card">
+🔵 Offshore Induction
+<br><br>
+20 May 2027
+</div>
+
+<div class="card">
+🟡 Installation Execution
+<br><br>
+03 Jul 2027
+</div>
+
+<div class="card">
+🔴 Hook-up & Commissioning
+<br><br>
+14 Aug 2027
+</div>
+
+</div>
+
+</div>
+
+<!-- ISSUES -->
+<div id="issues" class="screen">
+
+<div class="section">
+
+<div class="card issue">
+<h3>Piping Spool Delay</h3>
+<br>
+Priority: High
+</div>
+
+<div class="card issue">
+<h3>HVAC Clarification</h3>
+<br>
+Priority: Medium
+</div>
+
+<div class="card issue">
+<h3>Electrical Manpower</h3>
+<br>
+Priority: High
+</div>
+
+</div>
+
+</div>
+
+<div class="navbar">
+<button class="nav-btn" onclick="showScreen('home')">🏠 Home</button>
+<button class="nav-btn" onclick="showScreen('manpower')">👷 Team</button>
+<button class="nav-btn" onclick="showScreen('certs')">📜 Certs</button>
+<button class="nav-btn" onclick="showScreen('activities')">✅ Activity</button>
+<button class="nav-btn" onclick="showScreen('issues')">⚠ Issues</button>
+</div>
+
+<script>
+
+function showScreen(id){
+
+document.querySelectorAll('.screen')
+.forEach(screen => screen.classList.remove('active'));
+
+document.getElementById(id)
+.classList.add('active');
+
+}
+
+</script>
+
+</body>
+</html>
